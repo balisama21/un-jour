@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Poème pour Aina 🌸</title>
+  <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom, #ffe4e1, #fff0f5);
+      overflow-x: hidden;
+      font-family: 'Quicksand', sans-serif;
+      height: 100vh;
+      color: #6a1b9a;
+      position: relative;
+    }
+
+    .scroll-button {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #ffb6c1;
+      border: none;
+      padding: 12px 25px;
+      font-size: 1.2rem;
+      font-family: 'Quicksand', sans-serif;
+      color: white;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(255, 182, 193, 0.5);
+      transition: background 0.3s;
+      z-index: 1000;
+    }
+
+    .scroll-button:hover {
+      background: #ff69b4;
+    }
+
+    .poem {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 100px 20px 50px;
+      min-height: 100vh;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    h1 {
+      font-family: 'Parisienne', cursive;
+      font-size: 2.8rem;
+      margin-bottom: 20px;
+      color: #d81b60;
+    }
+
+    .poem p {
+      font-size: 1.4rem;
+      margin: 10px 0;
+      color: #8e24aa;
+      font-family: 'Parisienne', cursive;
+      line-height: 1.8;
+    }
+
+    .signature {
+      margin-top: 30px;
+      font-family: 'Parisienne', cursive;
+      font-size: 1.8rem;
+      color: #ff69b4;
+    }
+
+    .petal {
+      position: fixed;
+      top: -10%;
+      width: 30px;
+      height: 30px;
+      background: url('https://cdn.pixabay.com/photo/2016/03/31/19/56/sakura-1299270_1280.png') no-repeat center center / contain;
+      opacity: 0.8;
+      animation: fall linear infinite;
+      z-index: 0;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-10%) rotate(0deg);
+      }
+      100% {
+        transform: translateY(110vh) rotate(360deg);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- Bouton de défilement -->
+<button onclick="document.getElementById('poeme').scrollIntoView({ behavior: 'smooth' });" class="scroll-button">
+  Lire le poème 💌
+</button>
+
+<!-- Poème -->
+<div class="poem" id="poeme">
+  <h1>Un jour avenir — Pour Aina ✿</h1>
+  <p>Un jour viendra, léger comme l’aube,</p>
+  <p>Où nos regards parleront sans détour.</p>
+  <p>Un jour viendra, doux comme une robe</p>
+  <p>De brume rose au matin d’amour.</p>
+  <p>Un jour viendra, sans crainte ni silence,</p>
+  <p> Où nos mots danseront, ivres de confiance.</p>
+  <p>Un jour viendra, promesse infinie,</p>
+  <p>Où nos sourires bâtiront l’envie.</p>
+  <p>Je ne sais ni l’heure, ni le chemin,</p>
+  <p>Mais je crois en ce jour, main dans la main.</p>
+  <p>Car dès maintenant, dans ce doux destin,</p>
+  <p>Ton nom murmure déjà sous le mien...</p>
+
+  <div class="signature">— Balsama 💖</div>
+</div>
+
+<!-- Pétales qui tombent -->
+<script>
+  function createPetal() {
+    const petal = document.createElement('div');
+    petal.classList.add('petal');
+    petal.style.left = Math.random() * 100 + 'vw';
+    petal.style.animationDuration = (5 + Math.random() * 5) + 's';
+    document.body.appendChild(petal);
+
+    setTimeout(() => {
+      petal.remove();
+    }, 10000);
+  }
+
+  setInterval(createPetal, 300);
+</script>
+
+</body>
+</html>
